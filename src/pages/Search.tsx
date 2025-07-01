@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { MapPin, Search, Star, Filter, Bike, Home, UtensilsCrossed } from "lucide-react";
+import { MapPin, Search as SearchIcon, Star, Filter, Bike, Home, UtensilsCrossed } from "lucide-react";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -171,7 +170,7 @@ const Search = () => {
               <CardContent className="p-4">
                 <div className="flex gap-2">
                   <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                    <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                     <Input
                       type="text"
                       placeholder="지역, 시설명으로 검색..."
