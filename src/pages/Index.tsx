@@ -82,7 +82,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Bike className="h-8 w-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-gray-900">바이크투어</h1>
+              <h1 className="text-2xl font-bold text-gray-900">종주메이트</h1>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/routes" className="text-gray-600 hover:text-blue-600 transition-colors">종주코스</Link>
@@ -208,7 +208,9 @@ const Index = () => {
                 <CardContent>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">{route.reviews}개 후기</span>
-                    <Button variant="outline" size="sm">자세히 보기</Button>
+                    <Link to={`/route/${route.id}`}>
+                      <Button variant="outline" size="sm">자세히 보기</Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -244,7 +246,7 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Bike className="h-6 w-6" />
-                <span className="text-xl font-bold">바이크투어</span>
+                <span className="text-xl font-bold">종주메이트</span>
               </div>
               <p className="text-gray-400">
                 안전하고 즐거운 자전거 종주를 위한<br />
@@ -280,7 +282,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 바이크투어. All rights reserved.</p>
+            <p>&copy; 2024 종주메이트. All rights reserved.</p>
           </div>
         </div>
       </footer>
