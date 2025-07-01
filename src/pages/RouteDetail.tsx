@@ -13,7 +13,7 @@ const RouteDetail = () => {
 
   // 종주 코스 상세 정보
   const routeData = {
-    1: {
+    "1": {
       name: "4대강 종주",
       distance: "633km",
       difficulty: "고급",
@@ -25,7 +25,7 @@ const RouteDetail = () => {
       highlights: ["한강 자전거길", "금강 자전거길", "영산강 자전거길", "낙동강 자전거길"],
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
-    2: {
+    "2": {
       name: "동해안 자전거길",
       distance: "765km",
       difficulty: "중급",
@@ -37,7 +37,7 @@ const RouteDetail = () => {
       highlights: ["해안 경관", "일출 포인트", "해변 휴식", "해산물 맛집"],
       image: "https://images.unsplash.com/photo-1544191696-15693072e45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
-    3: {
+    "3": {
       name: "남한강 자전거길",
       distance: "220km",
       difficulty: "초급",
