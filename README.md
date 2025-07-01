@@ -1,73 +1,141 @@
-# Welcome to your Lovable project
+# JongjuMate
 
-## Project info
+## 핵심 기능
+1. 종주 코스 지도 및 정보 제공: 국토 종주 및 전국 종주 코스를 지도로 보여주고, 각 코스의 난이도, 주요 지점, 편의 시설 등 상세 정보를 제공합니다.
 
-**URL**: https://lovable.dev/projects/a76c2888-4242-4991-8d54-607e17c01e9a
+2. 자전거 친화 숙소/식당 검색 및 필터링: 종주길 주변의 자전거 친화적인 숙소와 식당을 검색하고, 자전거 보관, 세차, 수리 도구 대여 등 특정 조건을 기준으로 필터링하여 보여줍니다.
 
-## How can I edit this code?
+3. 사용자 리뷰 시스템: 앱 사용자들이 방문했던 숙소나 식당에 대한 별점, 텍스트 리뷰, 사진을 남기고 공유할 수 있습니다.
 
-There are several ways of editing your application.
+4. 업주 전용 홍보 및 정보 관리: 식당 및 숙소 운영자들이 자신의 업소 정보를 등록하고, 자전거 동호인들을 위한 특별한 시설이나 프로모션 정보를 홍보할 수 있는 관리 기능을 제공합니다.
 
-**Use Lovable**
+5. 실시간 피드백 및 업데이트: 사용자들의 피드백(예: 폐업, 서비스 변경 등)을 통해 업소 정보의 최신성을 유지하고, 리스트에 반영합니다.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a76c2888-4242-4991-8d54-607e17c01e9a) and start prompting.
+## 사용자 페르소나
+- 이름: 김철수
 
-Changes made via Lovable will be committed automatically to this repo.
+- 나이: 40세
 
-**Use your preferred IDE**
+- 직업: IT 회사 대리
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- 라이프스타일: 주말마다 자전거를 타는 것을 즐기는 열정적인 자전거 동호인. 최근 국토 종주를 목표로 삼고 있으며, 장거리 라이딩에 필요한 정보(식당, 숙박 등)를 찾는 데 어려움을 겪고 있습니다. 새로운 코스를 탐험하고 다른 동호인들과 경험을 공유하는 것을 좋아합니다.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- 목표: 국토 종주 및 전국 종주 코스를 편리하게 탐색하고 계획하고 싶고, 종주 중 믿을 수 있는 식당과 자전거 친화적인 숙박업소를 쉽게 찾고 싶습니다. 다른 종주 경험자들의 생생한 리뷰를 참고하여 실패 없는 선택을 하고, 자신이 경험한 좋은 장소들을 다른 동호인들에게 추천하고 싶습니다.
 
-Follow these steps:
+- 니즈: 종주 코스에 대한 상세 정보, 자전거 거치 및 보관이 편리한 숙박업소 정보, 실제 종주자들의 검증된 식당/숙박업소 리뷰, 경험 공유 및 추천 기능.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- 페인 포인트: 종주길 주변 정보가 파편화되어 있어 찾기 어렵고, 자전거 친화적 시설 여부가 불분명한 숙소를 피하고 싶습니다. 신뢰성 있는 후기가 부족하여 정보의 신뢰도가 낮다고 느낍니다.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+- 이름: 박미영
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- 나이: 35세
 
-**Edit a file directly in GitHub**
+- 직업: 게스트하우스 사장님
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- 라이프스타일: 자전거 종주 코스 인근에서 게스트하우스를 운영하고 있으며, 자전거 동호인 손님들이 많아 그들의 니즈를 잘 이해하고 있습니다. 자전거 보관 시설 등 편의를 제공하고 있습니다.
 
-**Use GitHub Codespaces**
+- 목표: 자전거 동호인들에게 자신의 숙박업소를 효과적으로 홍보하고, 실제 이용 고객들의 긍정적인 리뷰를 통해 신뢰도를 높이고 싶습니다. 앱을 통해 자전거 동호인들의 피드백을 직접 받고 서비스를 개선하고 싶습니다.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- 니즈: 자전거 동호인들을 타겟으로 한 효과적인 홍보 채널, 업소의 자전거 관련 편의 시설을 효과적으로 알릴 수 있는 방법, 고객 피드백 수집 및 소통 채널.
 
-## What technologies are used for this project?
+- 페인 포인트: 자전거 동호인을 위한 마땅한 홍보 채널이 부족하고, 자전거 관련 편의 시설을 갖추고 있음에도 이를 알릴 방법이 마땅치 않습니다. 온라인 리뷰 플랫폼에서 자전거 동호인들의 구체적인 피드백을 얻기 어렵습니다.
 
-This project is built with:
+## 사용자 시나리오 & 사용자 스토리
+김철수: 완벽한 종주길 숙소 찾기
+상황: 김철수는 이번 주말 떠날 국토 종주 라이딩의 숙소를 예약하려 합니다. 자전거 보관이 안전하고 라이더 편의 시설이 잘 갖춰진 곳을 찾고 있습니다.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+사용자 시나리오:
 
-## How can I deploy this project?
+1. '자전거 종주 도움' 앱에 접속합니다.
 
-Simply open [Lovable](https://lovable.dev/projects/a76c2888-4242-4991-8d54-607e17c01e9a) and click on Share -> Publish.
+2. 종주 코스 지도에서 다음 목적지 주변을 확대합니다.
 
-## Can I connect a custom domain to my Lovable project?
+3. '숙박' 필터를 적용하고, '자전거 보관 가능' 옵션을 선택합니다.
 
-Yes, you can!
+4. 검색된 숙소 목록에서 별점과 리뷰를 확인하고, 가장 마음에 드는 곳을 선택하여 예약합니다.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+5. 성공적으로 자전거 친화적인 숙소를 예약하고 안심합니다.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+사용자 스토리:
+
+> "자전거 종주객으로서, 저는 종주길에 있는 자전거 친화적인 숙박업소를 쉽게 찾고 예약하고 싶습니다. 그래서 안전하게 자전거를 보관하고 편안하게 휴식할 수 있습니다."
+
+인수 조건:
+
+- Given: 사용자가 앱에서 종주 코스 지도에 접근했을 때
+
+- When: 사용자가 특정 지역을 선택하고 '숙박' 필터를 적용했을 때
+
+- Then: 해당 지역 내의 숙박업소들이 지도에 핀으로 표시되며, 각 핀 클릭 시 숙소의 이름과 평균 별점이 팝업으로 나타난다.
+
+- Then: '자전거 보관 가능', '자전거 세차 공간 유무', '수리 도구 대여 가능' 등 자전거 친화적 필터가 제공되어 사용자가 원하는 조건으로 숙소를 정교하게 검색할 수 있다.
+
+- Then: 검색 결과로 나온 숙소 목록은 별점순, 거리순, 가격순(정보가 있을 경우)으로 정렬할 수 있다.
+
+---
+
+박미영: 게스트하우스 홍보 및 관리
+상황: 박미영 사장님은 자신의 게스트하우스에 자전거 동호인 손님을 더 많이 유치하고 싶습니다. 최근 자전거 세차 공간을 새로 마련하여 이 정보를 앱에 추가하고 싶습니다.
+
+사용자 시나리오:
+
+1. '자전거 종주 도움' 앱의 사장님 계정으로 로그인합니다.
+
+2. '내 업소 관리' 페이지로 이동합니다.
+
+3. '자전거 편의 시설' 항목에서 '자전거 세차 공간' 옵션을 체크하고 저장합니다.
+
+4. 새로운 프로모션 문구와 함께 최근 이용객들의 긍정적인 리뷰를 확인합니다.
+
+5. 자신의 업소가 앱 사용자들에게 효과적으로 노출되고 있음을 확인하고 만족합니다.
+
+사용자 스토리:
+
+> "숙박업소 사장으로서, 저는 저의 게스트하우스가 자전거 친화적임을 앱에 등록하고 홍보하고 싶습니다. 그래서 더 많은 자전거 종주객들을 유치하고, 그들에게 최고의 편의를 제공할 수 있습니다."
+
+인수 조건:
+
+- Given: 사장님 계정으로 앱에 로그인했을 때
+
+- When: 사장님이 '내 업소 정보 관리' 페이지에 접속했을 때
+
+- Then: 업소의 기본 정보(이름, 주소, 연락처, 영업시간, 사진)를 등록 및 수정할 수 있는 입력 필드가 제공된다.
+
+- Then: '자전거 거치대', '자전거 세차 공간', '간단한 수리 도구', '라이더 전용 휴게 공간' 등 자전거 친화적 시설 항목들을 체크박스 형태로 설정할 수 있다.
+
+- Then: 사장님이 작성한 홍보 문구와 등록된 시설 정보가 앱 사용자들에게 노출되는 업소 상세 페이지에 즉시 반영된다.
+
+---
+
+김철수: 방문했던 식당 리뷰 남기기
+상황: 김철수는 종주 중 들렀던 식당에서 매우 만족스러운 식사를 했습니다. 다른 라이더들에게도 이 식당을 추천하고 싶습니다.
+
+사용자 시나리오:
+
+1. 식사를 마친 후 앱에 접속합니다.
+
+2. 해당 식당을 검색하여 상세 페이지로 이동합니다.
+
+3. '리뷰 작성' 버튼을 클릭합니다.
+
+4. 별점 5점을 주고, 맛있었던 메뉴와 자전거 거치 편의성에 대한 텍스트 리뷰를 작성합니다.
+
+5. 식당 사진을 첨부하여 리뷰를 등록합니다.
+
+사용자 스토리:
+
+> "자전거 종주객으로서, 저는 방문했던 식당이나 숙박업소에 대한 생생한 리뷰를 남기고 싶습니다. 그래서 다른 종주객들에게 유용한 정보를 공유할 수 있습니다."
+
+인수 조건:
+
+- Given: 사용자가 특정 식당/숙박업소를 방문한 후 앱에 접속했을 때
+
+- When: 해당 업소 페이지에서 '리뷰 작성' 버튼을 클릭했을 때
+
+- Then: 1점에서 5점까지의 별점을 선택할 수 있는 인터페이스가 제공된다.
+
+- Then: 500자 이내의 텍스트 리뷰와 최대 3장까지의 사진을 첨부할 수 있는 기능이 제공된다.
+
+- Then: 작성된 리뷰는 즉시 해당 업소의 리뷰 목록에 추가되고, 업소의 평균 별점에 반영된다.
