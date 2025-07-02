@@ -6,10 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MapPin, Search as SearchIcon, Star, Filter, Bike, Home, UtensilsCrossed } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
 
   const facilities = [
@@ -68,9 +70,36 @@ const Search = () => {
   ];
 
   const filteredFacilities = facilities.filter(facility => {
-    if (selectedCategory === "all") return true;
-    return facility.category === selectedCategory;
+    // 카테고리 필터
+    if (selectedCategory !== "all" && facility.category !== selectedCategory) {
+      return false;
+    }
+    
+    // 자전거 서비스 필터
+    if (selectedServices.length > 0) {
+      const hasSelectedService = selectedServices.some(service => 
+        facility.bikeServices.includes(service)
+      );
+      if (!hasSelectedService) {
+        return false;
+      }
+    }
+    
+    return true;
   });
+
+  const handleServiceToggle = (service: string) => {
+    setSelectedServices(prev => 
+      prev.includes(service) 
+        ? prev.filter(s => s !== service)
+        : [...prev, service]
+    );
+  };
+
+  const handleApplyFilters = () => {
+    // 필터가 적용되면 자동으로 filteredFacilities가 업데이트됩니다
+    console.log("필터 적용됨:", { selectedCategory, selectedServices });
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -82,7 +111,9 @@ const Search = () => {
               <Bike className="h-6 w-6 text-blue-600" />
               <span className="text-xl font-bold">종주메이트</span>
             </div>
-            <Button variant="outline" size="sm">← 홈으로</Button>
+            <Link to="/">
+              <Button variant="outline" size="sm">← 홈으로</Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -118,9 +149,13 @@ const Search = () => {
                 <div>
                   <label className="text-sm font-semibold mb-2 block">자전거 서비스</label>
                   <div className="space-y-2">
-                    {["자전거 보관", "세차장", "수리도구", "라이더 메뉴", "테라스"].map((service) => (
+                    {["자전거 보관", "세차장", "수리도구", "라이더 메뉴", "테라스 휴게공간"].map((service) => (
                       <div key={service} className="flex items-center space-x-2">
-                        <Checkbox id={service} />
+                        <Checkbox 
+                          id={service} 
+                          checked={selectedServices.includes(service)}
+                          onCheckedChange={() => handleServiceToggle(service)}
+                        />
                         <label htmlFor={service} className="text-sm">{service}</label>
                       </div>
                     ))}
@@ -158,7 +193,7 @@ const Search = () => {
                   </Select>
                 </div>
 
-                <Button className="w-full">필터 적용</Button>
+                <Button className="w-full" onClick={handleApplyFilters}>필터 적용</Button>
               </CardContent>
             </Card>
           </div>
