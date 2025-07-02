@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Search from "./pages/Search";
 import Community from "./pages/Community";
 import RouteDetail from "./pages/RouteDetail";
+import Market from "./pages/Market";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/search" element={<Search />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/market" element={<Market />} />
           <Route path="/route/:id" element={<RouteDetail />} />
           <Route path="/routes" element={<div className="p-8 text-center">종주 코스 페이지 (개발 예정)</div>} />
           <Route path="/reviews" element={<div className="p-8 text-center">리뷰 페이지 (개발 예정)</div>} />

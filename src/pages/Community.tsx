@@ -1,14 +1,15 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MapPin, Users, Calendar, MessageSquare, Star, Bike, Plus } from "lucide-react";
+import { MapPin, Users, Calendar, MessageSquare, Star, Bike, Plus, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Community = () => {
   const [activeTab, setActiveTab] = useState("riding");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const ridingPosts = [
     {
@@ -136,6 +137,15 @@ const Community = () => {
     }
   ];
 
+  const filterPosts = (posts: any[]) => {
+    if (!searchQuery) return posts;
+    return posts.filter(post => 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 헤더 */}
@@ -165,6 +175,25 @@ const Community = () => {
           <p className="text-gray-600">라이더들과 함께 정보를 나누고 동행을 찾아보세요</p>
         </div>
 
+        {/* 검색 바 */}
+        <Card className="mb-6">
+          <CardContent className="p-4">
+            <div className="flex gap-2">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Input
+                  type="text"
+                  placeholder="제목, 내용, 태그로 검색..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+              <Button>검색</Button>
+            </div>
+          </CardContent>
+        </Card>
+
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="riding">라이딩 모집</TabsTrigger>
@@ -174,7 +203,7 @@ const Community = () => {
 
           <TabsContent value="riding" className="mt-6">
             <div className="space-y-4">
-              {ridingPosts.map((post) => (
+              {filterPosts(ridingPosts).map((post) => (
                 <Card key={post.id} className="hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -229,7 +258,7 @@ const Community = () => {
 
           <TabsContent value="club" className="mt-6">
             <div className="space-y-4">
-              {clubPosts.map((post) => (
+              {filterPosts(clubPosts).map((post) => (
                 <Card key={post.id} className="hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -280,7 +309,7 @@ const Community = () => {
 
           <TabsContent value="tips" className="mt-6">
             <div className="space-y-4">
-              {tipPosts.map((post) => (
+              {filterPosts(tipPosts).map((post) => (
                 <Card key={post.id} className="hover:shadow-lg transition-shadow cursor-pointer">
                   <CardHeader>
                     <div className="flex items-start justify-between">
