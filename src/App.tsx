@@ -10,7 +10,7 @@ import Community from "./pages/Community";
 import RouteDetail from "./pages/RouteDetail";
 import Market from "./pages/Market";
 import Login from "./pages/Login";
-import Routes from "./pages/Routes";
+import RoutesPage from "./pages/RoutesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,7 +27,7 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/market" element={<Market />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/routes" element={<Routes />} />
+          <Route path="/routes" element={<RoutesPage />} />
           <Route path="/route/:id" element={<RouteDetail />} />
           <Route path="/reviews" element={<div className="p-8 text-center">리뷰 페이지 (개발 예정)</div>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
