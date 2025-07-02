@@ -21,7 +21,9 @@ const Index = () => {
               <Link to="/search" className="text-gray-600 hover:text-blue-600 font-medium">시설 검색</Link>
               <Link to="/community" className="text-gray-600 hover:text-blue-600 font-medium">커뮤니티</Link>
               <Link to="/market" className="text-gray-600 hover:text-blue-600 font-medium">마켓</Link>
-              <Button variant="outline">로그인</Button>
+              <Link to="/login">
+                <Button variant="outline">로그인</Button>
+              </Link>
             </nav>
           </div>
         </div>
