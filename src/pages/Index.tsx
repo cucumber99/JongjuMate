@@ -1,12 +1,15 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Star, Search, Bike, Users, Map, ShoppingBag } from "lucide-react";
+import { MapPin, Star, Search, Bike, Users, Map, ShoppingBag, MessageCircle, Award, BookOpen, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* 헤더 */}
@@ -18,8 +21,12 @@ const Index = () => {
               <span className="text-2xl font-bold text-gray-800">종주메이트</span>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
+              <Link to="/community" className="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                <Users className="h-4 w-4 mr-1" />
+                커뮤니티
+              </Link>
+              <Link to="/routes" className="text-gray-600 hover:text-blue-600 font-medium">종주 코스</Link>
               <Link to="/search" className="text-gray-600 hover:text-blue-600 font-medium">시설 검색</Link>
-              <Link to="/community" className="text-gray-600 hover:text-blue-600 font-medium">커뮤니티</Link>
               <Link to="/market" className="text-gray-600 hover:text-blue-600 font-medium">마켓</Link>
               <Link to="/login">
                 <Button variant="outline">로그인</Button>
@@ -59,12 +66,26 @@ const Index = () => {
             </div>
           </div>
 
-          {/* 주요 기능 카드 */}
+          {/* 주요 기능 카드 - 커뮤니티 우선 배치 */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <Link to="/community">
+              <Card className="hover:shadow-xl transition-all cursor-pointer h-full border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-purple-50">
+                <CardContent className="p-6 text-center">
+                  <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">커뮤니티</h3>
+                  <p className="text-gray-600 text-sm mb-2">동행 찾기와 라이딩 정보 공유</p>
+                  <div className="flex items-center justify-center space-x-1 text-xs text-blue-600">
+                    <BookOpen className="h-3 w-3" />
+                    <span>입문자 팁&정보 가득!</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
             <Link to="/routes">
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardContent className="p-6 text-center">
-                  <Map className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <Map className="h-12 w-12 text-green-600 mx-auto mb-4" />
                   <h3 className="font-semibold text-lg mb-2">종주 코스</h3>
                   <p className="text-gray-600 text-sm">전국 주요 종주 코스 정보와 난이도별 가이드</p>
                 </CardContent>
@@ -74,19 +95,9 @@ const Index = () => {
             <Link to="/search">
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardContent className="p-6 text-center">
-                  <Search className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                  <Search className="h-12 w-12 text-orange-600 mx-auto mb-4" />
                   <h3 className="font-semibold text-lg mb-2">시설 검색</h3>
                   <p className="text-gray-600 text-sm">자전거 친화적인 숙소와 식당 찾기</p>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link to="/community">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                <CardContent className="p-6 text-center">
-                  <Users className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">커뮤니티</h3>
-                  <p className="text-gray-600 text-sm">동행 찾기와 라이딩 정보 공유</p>
                 </CardContent>
               </Card>
             </Link>
@@ -94,7 +105,7 @@ const Index = () => {
             <Link to="/market">
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardContent className="p-6 text-center">
-                  <ShoppingBag className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+                  <ShoppingBag className="h-12 w-12 text-purple-600 mx-auto mb-4" />
                   <h3 className="font-semibold text-lg mb-2">바이크 마켓</h3>
                   <p className="text-gray-600 text-sm">자전거 용품 사고팔기</p>
                 </CardContent>
@@ -104,8 +115,35 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 인기 코스 섹션 */}
+      {/* 커뮤니티 하이라이트 섹션 */}
       <section className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">🔥 입문자를 위한 커뮤니티</h2>
+            <p className="text-lg text-gray-600">초보 라이더도 안전하고 즐겁게! 경험자들의 생생한 팁과 정보를 만나보세요</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center p-6">
+              <BookOpen className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="font-semibold text-lg mb-2">입문자 가이드</h3>
+              <p className="text-gray-600 text-sm">장비 선택부터 기본 라이딩 기술까지</p>
+            </Card>
+            <Card className="text-center p-6">
+              <TrendingUp className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <h3 className="font-semibold text-lg mb-2">실시간 후기</h3>
+              <p className="text-gray-600 text-sm">최신 코스 정보와 생생한 체험담</p>
+            </Card>
+            <Card className="text-center p-6">
+              <Award className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+              <h3 className="font-semibold text-lg mb-2">인증 시스템</h3>
+              <p className="text-gray-600 text-sm">완주 인증으로 뱃지 획득하고 신뢰도 UP!</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* 인기 코스 섹션 */}
+      <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">인기 종주 코스</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -174,7 +212,7 @@ const Index = () => {
       </section>
 
       {/* 추천 시설 섹션 */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">라이더 추천 시설</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -290,6 +328,18 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* 챗봇 플로팅 버튼 */}
+      <button
+        onClick={() => setIsChatOpen(true)}
+        className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+        aria-label="체력 맞춤 코스 추천 챗봇"
+      >
+        <MessageCircle className="h-6 w-6" />
+      </button>
+
+      {/* 챗봇 컴포넌트 */}
+      {isChatOpen && <ChatBot onClose={() => setIsChatOpen(false)} />}
     </div>
   );
 };
